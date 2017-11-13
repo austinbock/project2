@@ -1,0 +1,15 @@
+ The client for this project is an anonymous manufacturing company that utilizes a plasma etch process tool to define a critical 
+patterning that is measured against an expected requirement specification.  The measured delta to expected is defined as "Error".
+The goal is to a classification algorithm which could be used on monitors to predict the likelihood of high 'Error' due to the condition of
+the process chamber.  A secondary goal would be to determine if an unsupervised classifier could be used to monitor tool health and 
+identify shifts that warrant shutdown for investigation.  A key factor in this analysis is that outside sources of noise on the 
+process line are not available here so the analysis will assume the to be negligible, however this may not be true.
+
+  All date/timestamps were removed from Error files and converted to a new sequential runs.  This was required to prevent exposure 
+of factory metrics but retains the necessary sequential information required for this time series.  The Error columns were also 
+normalized to also hide sensitive data and histogram indicate a normal process distribution centered about 0.  
+Optical emission spectra were obtained from monitor runs and married to the subsequent
+Error runID for labeling as anomaly/normal.  After converting the data into a pandas dataframe and combining the labels and optical emssion
+into a dictionary, exploratory analysis was performed.  The # of features from optical emssion spectra is very large so care will need
+to be taken to prevent memory issues and adequat algorithmn run times.  
+ 
